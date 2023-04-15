@@ -1,0 +1,114 @@
+@use "sass:map";
+@use "mixin" as m;
+
+ul,ol {
+    list-style: none;
+}
+img {
+  width: 100%;
+}
+* {
+  line-height: 1.4;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+section {
+  padding: 50px 0 70px;
+  &:nth-of-type(odd) {
+    background: map.get(m.$color, subKey);
+  }
+  &:nth-of-type(even) {
+    background: map.get(m.$color, key);
+  }
+}
+//ページ内リンク
+// .page_inks {
+//   margin-top: -800px;
+//   padding-top: 800px;
+// }
+
+.section_title {
+  text-align: center;
+  font-size: clamp(24px,36px/1440px * 100vw,36px);
+  font-weight: bold;
+  text-transform: capitalize;
+  text-shadow: 0 4px 4px rgba(0,0,0,25%);
+  padding-bottom: clamp(18px, 30px / 1440px * 100vw ,30px);
+}
+
+
+//contact
+// .form {
+// 	width: clamp(300px, 725px / 1440px * 100vw, 725px);
+// 	margin: 0 auto;
+// 	label {
+// 		display: block;
+// 		padding: 10px 0 5px;
+// 		text-transform: capitalize;
+// 		span {
+// 			color: #ee0a0a;
+// 			display: inline-block;
+// 			margin-left: 5px;
+// 		}
+// 	}
+//     input:focus,textarea:focus {
+//         outline: 0;
+//         border: 2px solid map.get(m.$color, base);
+//     }
+// 	input:not(.btn),
+// 	textarea,.form_text {
+// 		background: map.get(m.$color, form_bg);
+// 		color: map.get(m.$color, base);
+// 		width: 100%;
+// 		padding: 13px 10px;
+// 	}
+// }
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto 0;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: capitalize;
+  text-align: center;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+.send_btn {
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 25%);
+  color: map.get(m.$color, key);
+  background: map.get(m.$color, base);
+}
+//sns_btn
+.sns_btn {
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 25%);
+  border: 1px solid #333;
+}
+
+
+// .back_btn {
+//   border-bottom: 1px solid #333;
+// }
+
+//ボタンの一つめは余白を大きくする
+.btn:first-of-type {
+  margin-top: 50px;
+}
+
+//validation
+// .error_text {
+// 	font-size: 12px;
+// 	color: #ee0a0a;
+// 	padding: 3px 0;
+// }

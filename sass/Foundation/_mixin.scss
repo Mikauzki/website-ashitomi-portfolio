@@ -1,0 +1,32 @@
+@use "sass:map";
+
+//color
+//background: map.get([名前空間].$color, $key);
+//color: map.get([名前空間].$color, $key);
+$color: (
+  key: #fff,
+  subKey: #f7f7f7,
+  base: #333,
+  text: #7c7c7c,
+  form_bg: #ebfcff
+);
+
+@function color($key) {
+    @return map.get($color, $key);
+}
+
+// RESPONSIVE
+// @include [名前空間].screen($bp) {}
+// --------------------------------------------------
+$breakpoint: (
+  S: 'screen and (min-width: 400px)',
+  M: 'screen and (min-width: 768px)',
+  L: 'screen and (min-width: 941px)',
+  XL: 'screen and (min-width: 1025px)',
+  XXL: 'screen and (min-width: 1280px)',
+);
+@mixin screen($bp) {
+  @media #{map.get($breakpoint, $bp)} {
+    @content;
+  }
+}

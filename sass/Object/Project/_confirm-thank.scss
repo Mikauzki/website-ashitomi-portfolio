@@ -1,0 +1,19 @@
+@use "sass:map";
+@use "../../Foundation/mixin" as m;
+
+.form_body {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: clamp(50px, 70px / 1440px * 100vw, 70px) 0;
+}
+
+.form_title {
+  font-size: clamp(20px, 36px / 1440px * 100vw, 36px);
+  font-weight: bold;
+  text-align: center;
+}
+
+.form_text {
+  padding: 20px 0;
+}

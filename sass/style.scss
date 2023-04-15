@@ -1,0 +1,14 @@
+@use "sass:map";
+
+//FLOCSS
+// Foundation -- reset.cssやプロジェクトの基本的なスタイルを定義
+@use "Foundation";
+
+// Layout -- header,footer,sidebar,mainのコンテンツエリアなどプロジェクト共通のコンテナーブロックを定義
+@use "Layout";
+
+//Object
+@use "Object";
+  //  Component --  小さな単位であり汎用性が高く、再利用できるパターン。最低限の機能
+  //  Project --  project固有のパターン
+  //  Utility --  Component,Projectの--Modifierで解決が難しいパターン。スタイル調整

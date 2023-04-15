@@ -1,0 +1,320 @@
+@use "sass:map";
+@use "../../Foundation/mixin" as m;
+
+//mv
+.mv {
+	position: sticky;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	display: grid;
+	place-items: center;
+	height: clamp(400px, 600px /1440px * 100vw, 600px);
+	background: url(/images/mv.png) center / cover;
+	h1 {
+		font-size: clamp(36px, 48px /1440px * 100vw, 48px);
+		font-weight: bold;
+		text-transform: uppercase;
+		text-shadow: 0 10px 8px #000;
+		font-family: "Koulen", cursive;
+		color: map.get(m.$color, key);
+	}
+}
+
+//works
+.works_list {
+	width: clamp(300px, 1120px / 1440px * 100vw ,1440px);
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: clamp(10px, 20px /1440px * 100vw, 20px);
+	cursor: pointer;
+	> *:hover {
+		background: map.get(m.$color, base);
+		transition: .5s;
+	}
+}
+
+.works_item {
+  position: sticky;
+  top: clamp(100px, 200px / 1440px * 100vw, 200px);
+	width: clamp(250px, 360px / 1440px * 100vw, 360px);
+	background: map.get(m.$color, text);
+	padding: clamp(10px, 20px /1440px * 100vw, 20px);
+	.logo {
+		width: 100px;
+		height: 100px;
+		background: map.get(m.$color, key);
+		border-radius: 50%;
+		display: grid;
+		place-items: center;
+		margin: 0 auto;
+		img {
+			width: 60px;
+			height: 60px;
+			object-fit: contain;
+		}
+	}
+	.title {
+		text-align: center;
+		font-size: 24px;
+		font-weight: bold;
+		color: map.get(m.$color, key);
+		padding: clamp(8px, 15px /1440px * 100vw, 15px) 0;
+	}
+	.text {
+		font-size: 14px;
+		background: map.get(m.$color, key);
+		color: map.get(m.$color, text);
+		width: 90%;
+		padding: 8px;
+		margin: 0 auto;
+		min-height: 90px;
+	}
+}
+
+//career
+.career_cont {
+	width: clamp(300px, 1120px / 1440px * 100vw ,1440px);
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	gap: 25px;
+	padding: 0 clamp(0, 100px/1440px * 100vw, 100px);
+	@include m.screen(L) {
+		flex-direction: row;
+	}
+}
+.career_list {
+	display: flex;
+	+ .career_list {
+		padding-top: 10px;
+	}
+	dt {
+		font-weight: 500;
+		font-size: clamp(16px, 18px /1440px * 100vw, 18px);
+	}
+	dd {
+		font-size: clamp(14px, 16px /1440px * 100vw, 16px);
+		padding-left: clamp(15px, 25px /1440px * 100vw, 25px);
+		color: map.get(m.$color, text);
+		text-align: justify;
+	}
+}
+.career_img {
+	position: relative;
+	width: min(100%, 400px);
+	height: 255px;
+	margin: 0 auto;
+}
+.career_imgWrap {
+	position: absolute;
+	aspect-ratio: 1.5 / 1;
+	cursor: pointer;
+	transition: .5s;
+	&:nth-of-type(odd) {
+		top: 0;
+		left: 0;
+		z-index: 0;
+		box-shadow: 4px 4px 4px rgba(0, 0, 0, 25%);
+		&:hover {
+			//奇数の画像をホバーすると前に表示されて影が薄くなる
+			z-index: 2;
+			box-shadow: 6px 6px 8px rgba(0, 0, 0, 25%);
+			&:not(:nth-of-type(odd)) {
+				//奇数の画像をホバーすると偶数の画像が影が濃くなる
+				box-shadow: 4px 4px 4px rgba(0, 0, 0, 25%);
+			}
+		}
+	}
+	&:nth-of-type(even) {
+		bottom: 0;
+		right: 0;
+		z-index: 1;
+		box-shadow: 6px 6px 8px rgba(0, 0, 0, 25%);
+	}
+}
+
+//about
+.about_cont {
+	width: clamp(300px, 1120px / 1440px * 100vw ,1440px);
+	margin: 0 auto;
+	padding: 0 clamp(0, 100px/1440px * 100vw, 100px);
+	display: grid;
+	grid-template:
+		"img"
+		"text"
+		"account";
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+	@include m.screen(L) {
+		gap: 15px;
+		grid-template:
+			"img text"
+			"img account";
+		grid-template-columns: 470px 1fr;
+		grid-template-rows: 1fr;
+	}
+	> * {
+		background: map.get(m.$color, key);
+		padding: 10px;
+	}
+}
+.about_imgWrap {
+	grid-area: img;
+}
+.about_list {
+	grid-area: text;
+}
+.about_tools {
+	grid-area: account;
+}
+
+.about_imgWrap {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 245px;
+	img {
+		height: 100%;
+		object-fit: cover;
+		@include m.screen(L) {
+			object-fit: fill;
+		}
+	}
+}
+.about_list {
+	dt {
+		font-size: clamp(18px, 20px /1440px * 100vw, 20px);
+		font-weight: 500;
+	}
+	dd {
+		font-size: clamp(14px, 16px /1440px * 100vw, 16px);
+		color: map.get(m.$color, text);
+		padding-top: 10px;
+		text-align: justify;
+	}
+}
+.about_tools {
+	height: 60px;
+	display: flex;
+	align-items: center;
+	li {
+		width: 35px;
+		height: 35px;
+		margin: 0 clamp(5px, 10px /1440px * 100vw, 10px);
+		&:hover {
+			opacity: .7;
+			transition: .3s;
+		}
+	}
+}
+
+//request
+.request_cont {
+	width: clamp(300px, 1120px / 1440px * 100vw ,1440px);
+	margin: 0 auto;
+}
+.request_text {
+	text-align: center;
+	font-size: clamp(16px, 18px /1440px * 100vw, 18px);
+	padding: 10px;
+}
+.request_info {
+  width: clamp(300px,900px/ 1440px * 100vw,900px);
+  margin: 0 auto;
+	tr {
+		display: flex;
+		flex-direction: column;
+		@include m.screen(M) {
+			flex-direction: row;
+		}
+	}
+	tr + tr {
+		padding-top: 10px;
+	}
+	th {
+		width: max(100px,100%);
+		text-align: center;
+		background: map.get(m.$color, subKey);
+		font-weight: bold;
+		@include m.screen(M) {
+			width: 100px;
+		}
+	}
+	td {
+		flex: 1;
+	}
+	th, td {
+		padding: clamp(5px,10px / 1440px * 100vw,10px);
+	}
+}
+
+//achievement
+.achievement_list {
+	width: clamp(300px, 1120px / 1440px * 100vw ,1440px);
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: clamp(10px, 20px /1440px * 100vw, 20px);
+}
+
+.achievement li {
+	cursor: pointer;
+  position: sticky;
+  top: clamp(100px, 200px / 1440px * 100vw, 200px);
+	width: clamp(250px, 360px / 1440px * 100vw, 360px);
+	padding-bottom: clamp(10px, 20px /1440px * 100vw, 20px);
+	background: map.get(m.$color, key);
+	&:hover {
+		transition: .5s;
+		box-shadow: 0px 3px 15px #333;
+	}
+	.achievementImg_wrap {
+		display: grid;
+		place-items: center;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+	.title {
+		text-align: center;
+		font-size: 24px;
+		font-weight: bold;
+		padding: clamp(8px, 15px /1440px * 100vw, 15px) 0;
+	}
+	.text {
+		font-size: 14px;
+		background: map.get(m.$color, subKey);
+		color: map.get(m.$color, text);
+		width: 90%;
+		padding: 8px;
+		margin: 0 auto;
+		min-height: 90px;
+		.design_link {
+			display: block;
+			text-align: end;
+			color: #0091ff;
+		}
+	}
+}
+
+//contact
+.contact_cont {
+	width: clamp(300px, 1120px / 1440px * 100vw ,1440px);
+	margin: 0 auto;
+}
+.contact_text {
+	text-align: center;
+	font-size: clamp(16px, 18px /1440px * 100vw, 18px);
+	padding: 10px;
+}
+
+
+

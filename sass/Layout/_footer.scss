@@ -1,0 +1,12 @@
+@use "sass:map";
+@use "../Foundation/mixin" as m;
+
+footer {
+	.copy {
+		font-size: 12px;
+		text-align: center;
+		background: map.get(m.$color, base);
+		color: map.get(m.$color, key);
+		padding: 5px 0;
+	}
+}
