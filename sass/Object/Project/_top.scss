@@ -24,7 +24,7 @@
 
 //works
 .works_list {
-	width: clamp(300px, 1120px / 1440px * 100vw ,1440px);
+	width: clamp(300px, 1120px / 1440px * 100vw, 1440px);
 	margin: 0 auto;
 	display: flex;
 	flex-wrap: wrap;
@@ -33,13 +33,13 @@
 	cursor: pointer;
 	> *:hover {
 		background: map.get(m.$color, base);
-		transition: .5s;
+		transition: 0.5s;
 	}
 }
 
 .works_item {
-  position: sticky;
-  top: clamp(100px, 200px / 1440px * 100vw, 200px);
+	position: sticky;
+	top: clamp(100px, 200px / 1440px * 100vw, 200px);
 	width: clamp(250px, 360px / 1440px * 100vw, 360px);
 	background: map.get(m.$color, text);
 	padding: clamp(10px, 20px /1440px * 100vw, 20px);
@@ -77,7 +77,7 @@
 
 //career
 .career_cont {
-	width: clamp(300px, 1120px / 1440px * 100vw ,1440px);
+	width: clamp(300px, 1120px / 1440px * 100vw, 1440px);
 	margin: 0 auto;
 	display: flex;
 	justify-content: center;
@@ -114,21 +114,12 @@
 	position: absolute;
 	aspect-ratio: 1.5 / 1;
 	cursor: pointer;
-	transition: .5s;
+	transition: 0.5s;
 	&:nth-of-type(odd) {
 		top: 0;
 		left: 0;
 		z-index: 0;
 		box-shadow: 4px 4px 4px rgba(0, 0, 0, 25%);
-		&:hover {
-			//奇数の画像をホバーすると前に表示されて影が薄くなる
-			z-index: 2;
-			box-shadow: 6px 6px 8px rgba(0, 0, 0, 25%);
-			&:not(:nth-of-type(odd)) {
-				//奇数の画像をホバーすると偶数の画像が影が濃くなる
-				box-shadow: 4px 4px 4px rgba(0, 0, 0, 25%);
-			}
-		}
 	}
 	&:nth-of-type(even) {
 		bottom: 0;
@@ -140,7 +131,7 @@
 
 //about
 .about_cont {
-	width: clamp(300px, 1120px / 1440px * 100vw ,1440px);
+	width: clamp(300px, 1120px / 1440px * 100vw, 1440px);
 	margin: 0 auto;
 	padding: 0 clamp(0, 100px/1440px * 100vw, 100px);
 	display: grid;
@@ -207,15 +198,15 @@
 		height: 35px;
 		margin: 0 clamp(5px, 10px /1440px * 100vw, 10px);
 		&:hover {
-			opacity: .7;
-			transition: .3s;
+			opacity: 0.7;
+			transition: 0.3s;
 		}
 	}
 }
 
 //request
 .request_cont {
-	width: clamp(300px, 1120px / 1440px * 100vw ,1440px);
+	width: clamp(300px, 1120px / 1440px * 100vw, 1440px);
 	margin: 0 auto;
 }
 .request_text {
@@ -224,8 +215,8 @@
 	padding: 10px;
 }
 .request_info {
-  width: clamp(300px,900px/ 1440px * 100vw,900px);
-  margin: 0 auto;
+	width: clamp(300px, 900px/ 1440px * 100vw, 900px);
+	margin: 0 auto;
 	tr {
 		display: flex;
 		flex-direction: column;
@@ -237,7 +228,7 @@
 		padding-top: 10px;
 	}
 	th {
-		width: max(100px,100%);
+		width: max(100px, 100%);
 		text-align: center;
 		background: map.get(m.$color, subKey);
 		font-weight: bold;
@@ -248,14 +239,15 @@
 	td {
 		flex: 1;
 	}
-	th, td {
-		padding: clamp(5px,10px / 1440px * 100vw,10px);
+	th,
+	td {
+		padding: clamp(5px, 10px / 1440px * 100vw, 10px);
 	}
 }
 
 //achievement
 .achievement_list {
-	width: clamp(300px, 1120px / 1440px * 100vw ,1440px);
+	width: clamp(300px, 1120px / 1440px * 100vw, 1440px);
 	margin: 0 auto;
 	display: flex;
 	flex-wrap: wrap;
@@ -265,13 +257,13 @@
 
 .achievement li {
 	cursor: pointer;
-  position: sticky;
-  top: clamp(100px, 200px / 1440px * 100vw, 200px);
+	position: sticky;
+	top: clamp(100px, 200px / 1440px * 100vw, 200px);
 	width: clamp(250px, 360px / 1440px * 100vw, 360px);
 	padding-bottom: clamp(10px, 20px /1440px * 100vw, 20px);
 	background: map.get(m.$color, key);
 	&:hover {
-		transition: .5s;
+		transition: 0.5s;
 		box-shadow: 0px 3px 15px #333;
 	}
 	.achievementImg_wrap {
@@ -307,7 +299,7 @@
 
 //contact
 .contact_cont {
-	width: clamp(300px, 1120px / 1440px * 100vw ,1440px);
+	width: clamp(300px, 1120px / 1440px * 100vw, 1440px);
 	margin: 0 auto;
 }
 .contact_text {
@@ -315,6 +307,3 @@
 	font-size: clamp(16px, 18px /1440px * 100vw, 18px);
 	padding: 10px;
 }
-
-
-
